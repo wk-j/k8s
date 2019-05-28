@@ -1,6 +1,7 @@
 ## Kubernetes
 
 - [Kubernetes on Ubuntu 18.10](https://www.linuxtechi.com/install-configure-kubernetes-ubuntu-18-04-ubuntu-18-10/)
+- [How to Install and Configure Kubernetes and Docker on Ubuntu 18.04 LTS](https://www.howtoforge.com/tutorial/how-to-install-kubernetes-on-ubuntu/)
 
 #### 1. Master
 
@@ -34,7 +35,7 @@ sudo apt-get install kubeadm -y
 kubeadm version
 
 sudo kubeadm init --pod-network-cidr=172.168.10.0/24
-sudo kubeadm init --pod-network-cidr=192.168.0.0/24
+sudo kubeadm init --pod-network-cidr=192.168.0.0/24 --apiserver-advertise-address=192.168.0.200
 
 sudo kubeadm reset
 
@@ -80,5 +81,10 @@ kubectl run bootcamp --image=docker.io/jocatalin/kubernetes-bootcamp:v1 --port=8
 kubectl get deployments
 kubectl expose deployment/bootcamp --type="LoadBalancer" --port 8080
 kubectl get services
+```
+
+```bash
+kubectl get pods
+kubectl proxy
 ```
 
