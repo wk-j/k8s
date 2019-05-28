@@ -34,6 +34,9 @@ sudo apt-get install kubeadm -y
 kubeadm version
 
 sudo kubeadm init --pod-network-cidr=172.168.10.0/24
+sudo kubeadm init --pod-network-cidr=192.168.0.0/24
+
+sudo kubeadm reset
 
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
@@ -76,4 +79,6 @@ kubectl delete service my-service
 kubectl run bootcamp --image=docker.io/jocatalin/kubernetes-bootcamp:v1 --port=8080
 kubectl get deployments
 kubectl expose deployment/bootcamp --type="LoadBalancer" --port 8080
+kubectl get services
 ```
+
